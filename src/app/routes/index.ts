@@ -11,6 +11,7 @@ import { projectRoutes } from '../modules/projects/project.route';
 import { serviceRoutes } from '../modules/service/service.route';
 import { informationRoutes } from '../modules/information/information.route';
 import { teamRoutes } from '../modules/team/team.route';
+import { faqRoutes } from '../modules/faq/faq.route';
 const router = Router();
 
 const moduleRoutes = [
@@ -50,6 +51,10 @@ const moduleRoutes = [
   {
     path: '/team',
     route: teamRoutes,
+  },
+  {
+    path: '/faq',
+    route: faqRoutes,
   },
 ];
 
