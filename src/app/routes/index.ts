@@ -6,13 +6,8 @@ import { userRoutes } from '../modules/user/user.route';
 import { imgGalleryRoutes } from '../modules/image_gallery/img_gallery.route';
 import { aboutRoutes } from '../modules/about/about.route';
 import { imageGalleryRoutes } from '../modules/gallery/gallery.route';
-import { programmRoutes } from '../modules/programm/programm.route';
-import { reportRoutes } from '../modules/reports/report.route';
-import { informationRoutes } from '../modules/information/information.route';
 import { bannerRoutes } from '../modules/banner/banner.route';
-import { activityRoutes } from '../modules/recent-activity/activity.route';
 import { projectRoutes } from '../modules/projects/project.route';
-import { ebookRoutes } from '../modules/ebook/ebook.route';
 const router = Router();
 
 const moduleRoutes = [
@@ -41,18 +36,7 @@ const moduleRoutes = [
     path: '/about',
     route: aboutRoutes,
   },
-  {
-    path: '/activity',
-    route: activityRoutes,
-  },
-  {
-    path: '/report',
-    route: reportRoutes,
-  },
-  {
-    path: '/information',
-    route: informationRoutes,
-  },
+  
   {
     path: '/banner',
     route: bannerRoutes,
@@ -61,14 +45,7 @@ const moduleRoutes = [
     path: '/project',
     route: projectRoutes,
   },
-  {
-    path: '/programm',
-    route: programmRoutes,
-  },
-  {
-    path: '/ebook',
-    route: ebookRoutes,
-  },
+ 
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

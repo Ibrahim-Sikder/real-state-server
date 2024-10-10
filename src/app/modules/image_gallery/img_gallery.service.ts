@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import QueryBuilder from '../../builder/QueryBuilder';
-import { programmSearchableField } from '../programm/programm.constant';
+import { projectSearchableField } from '../projects/project.constant';
 import { TImgGallery } from './img_gallery.interface';
 import { ImgGallery } from './img_gallery.model';
 
@@ -11,7 +11,7 @@ const createImgGallery = async (payload: TImgGallery) => {
 
 const getAllImgGallery = async (query: Record<string, unknown>) => {
   const imgGalleryQuery = new QueryBuilder(ImgGallery.find(), query)
-    .search(programmSearchableField)
+    .search(projectSearchableField)
     .filter()
     .sort()
     .paginate()

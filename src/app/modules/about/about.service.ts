@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import QueryBuilder from '../../builder/QueryBuilder';
-import { programmSearchableField } from '../programm/programm.constant';
+import { projectSearchableField } from '../projects/project.constant';
 import { TAbout } from './about.interface';
 import { About } from './about.model';
 
@@ -11,7 +11,7 @@ const createAbout = async (payload: TAbout) => {
 
 const getAllAbout = async (query: Record<string, unknown>) => {
   const aboutQuery = new QueryBuilder(About.find(), query)
-    .search(programmSearchableField)
+    .search(projectSearchableField)
     .filter()
     .sort()
     .paginate()

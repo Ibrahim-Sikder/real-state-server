@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import QueryBuilder from '../../builder/QueryBuilder';
-import { programmSearchableField } from '../programm/programm.constant';
+import { bannerSearch } from './banner.constant';
 import { TBanner } from './banner.interface';
 import { Banner } from './banner.model';
 
@@ -11,7 +11,7 @@ const createBanner = async (payload: TBanner) => {
 
 const getAllBanner = async (query: Record<string, unknown>) => {
   const bannerQuery = new QueryBuilder(Banner.find(), query)
-    .search(programmSearchableField)
+    .search(bannerSearch)
     .filter()
     .sort()
     .paginate()
