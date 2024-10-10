@@ -8,6 +8,7 @@ import { aboutRoutes } from '../modules/about/about.route';
 import { imageGalleryRoutes } from '../modules/gallery/gallery.route';
 import { bannerRoutes } from '../modules/banner/banner.route';
 import { projectRoutes } from '../modules/projects/project.route';
+import { serviceRoutes } from '../modules/service/service.route';
 const router = Router();
 
 const moduleRoutes = [
@@ -40,6 +41,10 @@ const moduleRoutes = [
   {
     path: '/banner',
     route: bannerRoutes,
+  },
+  {
+    path: '/service',
+    route: serviceRoutes,
   },
   {
     path: '/project',
