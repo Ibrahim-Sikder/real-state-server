@@ -21,16 +21,7 @@ const moduleRoutes = [
     route: authRoutes,
   },
   {
-    path: '/videos',
-    route: videoRoutes,
-  },
-  {
     path: '/gallery',
-    route: imageGalleryRoutes,
-  },
-
-  {
-    path: '/image-gallery',
     route: imgGalleryRoutes,
   },
   {
