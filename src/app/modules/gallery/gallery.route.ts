@@ -33,7 +33,7 @@ router.post(
   imageGalleryController.deleteImage,
 );
 
-router.get('/folders',  imageGalleryController.getFolders);
+router.get('/folder',  imageGalleryController.getFolders);
 
 router.post(
   '/folder',
@@ -48,4 +48,4 @@ router.delete(
   imageGalleryController.deleteFolder,
 );
 
-export const imageGalleryRoutes = router;
+export const galleryRoutes = router;

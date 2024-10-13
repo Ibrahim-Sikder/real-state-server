@@ -63,6 +63,7 @@ const createFolder: RequestHandler = catchAsync(async (req, res) => {
 
 // Function to get all folders
 const getFolders: RequestHandler = catchAsync(async (req, res) => {
+  console.log(req)
   const result = await imageGalleryService.getFolders(req);
 
   sendResponse(res, {

@@ -76,7 +76,7 @@ export const createImage = async (req: Request): Promise<string> => {
   try {
     const files = req.files;
     const { folder } = req.body;
-    console.log(req.file)
+    console.log(req.file);
     console.log(req.body);
     console.log('receive folder from ', folder);
 
@@ -174,6 +174,7 @@ const deleteImage = async (req: Request) => {
 };
 
 const getFolders = async (req: Request) => {
+  console.log(req.query)
   try {
     const searchableFields = ['name'];
     const query = req.query;

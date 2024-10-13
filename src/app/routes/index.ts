@@ -5,7 +5,7 @@ import { authRoutes } from '../modules/Auth/auth.route';
 import { userRoutes } from '../modules/user/user.route';
 import { imgGalleryRoutes } from '../modules/image_gallery/img_gallery.route';
 import { aboutRoutes } from '../modules/about/about.route';
-import { imageGalleryRoutes } from '../modules/gallery/gallery.route';
+import { galleryRoutes, } from '../modules/gallery/gallery.route';
 import { bannerRoutes } from '../modules/banner/banner.route';
 import { projectRoutes } from '../modules/projects/project.route';
 import { serviceRoutes } from '../modules/service/service.route';
@@ -24,10 +24,7 @@ const moduleRoutes = [
     path: '/auth',
     route: authRoutes,
   },
-  {
-    path: '/gallery',
-    route: imgGalleryRoutes,
-  },
+
   {
     path: '/about',
     route: aboutRoutes,
@@ -60,6 +57,10 @@ const moduleRoutes = [
   {
     path: '/appointment',
     route: appointmentRoutes,
+  },
+  {
+    path: '/gallery',
+    route: galleryRoutes,
   },
 ];
 
