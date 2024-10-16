@@ -19,7 +19,7 @@ export const sendImageToCloudinary = (
       path,
       {
         public_id: imageName.trim(),
-        folder: `bnp-family/${folder}`,
+        folder: `real-state/${folder}`,
       },
       function (error, result) {
         if (error) {

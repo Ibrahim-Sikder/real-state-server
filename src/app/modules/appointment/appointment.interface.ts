@@ -1,8 +1,9 @@
 export type TAppointment = {
     name: string;
-    phone: number;
+    phone: string;
     email: string;
-    dob: string;
-    message: string;
+    date: string;
+    category: string;
+    status: string
   };
   

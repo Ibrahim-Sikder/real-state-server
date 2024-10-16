@@ -1,9 +1,9 @@
 import express from 'express';
-import { validateRequest } from '../../../utils/validateRequest';
 
 import { auth } from '../../middlewares/auth';
 import { appointmentValidations } from './appointment.validation';
 import { appointmentControllers } from './appointment.controller';
+import { validateRequest } from '../../middlewares/validateRequest';
 
 const router = express.Router();
 
@@ -14,5 +14,8 @@ router.post(
 );
 router.get('/', appointmentControllers.getAllAppointment);
 router.delete('/:id', auth('admin'), appointmentControllers.deleteAppointment);
-
+router.patch(
+  '/:id',
+  appointmentControllers.upateAppointment,
+);
 export const appointmentRoutes = router;

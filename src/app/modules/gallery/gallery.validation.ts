@@ -5,7 +5,7 @@ export const uploadImageToGallerySchema = z.object({
     folder: z.string({
       required_error: 'Folder is required',
       invalid_type_error: 'Folder must be a string',
-    }),
+    }).optional()
   }),
 });
 

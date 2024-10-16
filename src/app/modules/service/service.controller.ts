@@ -7,7 +7,7 @@ import { serviceServices } from './services.service';
 const createService = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await serviceServices.createService(req.body);
-    console.log(result)
+
 
     sendResponse(res, {
       statusCode: httpStatus.OK,

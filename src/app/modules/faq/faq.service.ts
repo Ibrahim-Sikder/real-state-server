@@ -46,10 +46,15 @@ const deleteFaq = async (id: string) => {
 
   return faq;
 };
+const getSinigleFaq = async (id: string) => {
+  const result = await Faq.findById(id);
+  return result;
+};
 
 export const FaqServices = {
   createFaq,
   getAllFaq,
   updateFaq,
   deleteFaq,
+  getSinigleFaq,
 };

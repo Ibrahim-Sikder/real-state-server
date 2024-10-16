@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Router } from 'express';
 import { imageGalleryController } from './gallery.controller';
 
@@ -6,9 +7,9 @@ import {
   uploadImageToGallerySchema,
   createFolderSchema,
 } from './gallery.validation';
-import { validateRequest } from '../../../utils/validateRequest';
 import { upload } from '../../../utils/sendImageToCloudinary';
 import { auth } from '../../middlewares/auth';
+import { validateRequest } from '../../middlewares/validateRequest';
 
 const router = Router();
 
@@ -33,7 +34,7 @@ router.post(
   imageGalleryController.deleteImage,
 );
 
-router.get('/folder',  imageGalleryController.getFolders);
+router.get('/folders',  imageGalleryController.getFolders);
 
 router.post(
   '/folder',

@@ -75,10 +75,9 @@ export const createImage = async (req: Request): Promise<string> => {
 
   try {
     const files = req.files;
+    console.log('file...............',files)
     const { folder } = req.body;
-    console.log(req.file);
-    console.log(req.body);
-    console.log('receive folder from ', folder);
+    console.log('folder console ',folder)
 
     if (!files || Object.keys(files).length === 0) {
       throw new AppError(httpStatus.BAD_REQUEST, 'Please upload an image');
@@ -174,7 +173,6 @@ const deleteImage = async (req: Request) => {
 };
 
 const getFolders = async (req: Request) => {
-  console.log(req.query)
   try {
     const searchableFields = ['name'];
     const query = req.query;

@@ -1,5 +1,24 @@
 export type TProject = {
-  title:string,
-  description:string,
-  image: string;
+  title: string;
+  sub_title: string;
+  project_type: string;
+  project_address: string;
+  land_area: string;
+  storied: string;
+  apartment_contains: string;
+  overview_Location: string[];
+  short_description: string;
+  overview_description: string;
+  concept_Location?: string[];
+  concept_description?: string;
+  floor_title?: string;
+  floor_Location?: string[];
+  floor_description?: string;
+  map_Location?: string[];
+  map_description?: string;
+  floorImage?: string;
+  locationImg?: string;
+  conceptImage?: string;
+  overviewImage?: string;
+  videoUrls?: string[];
 };

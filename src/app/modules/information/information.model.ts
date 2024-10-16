@@ -11,7 +11,7 @@ const InformationSchema = new Schema<TInformation>({
     required: [true, 'Name is required'],
   },
   phone: {
-    type: Number,
+    type: String,
   },
   email: {
     type: String,
@@ -22,6 +22,8 @@ const InformationSchema = new Schema<TInformation>({
   message: {
     type: String,
   },
+},{
+  timestamps:true
 });
 
 export const Information = model<TInformation>(

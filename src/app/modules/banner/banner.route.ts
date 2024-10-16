@@ -1,7 +1,7 @@
 import express from 'express';
-import { validateRequest } from '../../../utils/validateRequest';
 import { bannerControllers } from './banner.controller';
 import { bannerValidations } from './banner.validation';
+import { validateRequest } from '../../middlewares/validateRequest';
 const router = express.Router();
 
 router.post(

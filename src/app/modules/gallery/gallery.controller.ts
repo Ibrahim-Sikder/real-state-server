@@ -29,7 +29,7 @@ const getImagesByFolder: RequestHandler = catchAsync(async (req, res) => {
 
 const createImage: RequestHandler = catchAsync(async (req, res) => {
   const result = await imageGalleryService.createImage(req);
-
+console.log(req)
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
@@ -63,7 +63,6 @@ const createFolder: RequestHandler = catchAsync(async (req, res) => {
 
 // Function to get all folders
 const getFolders: RequestHandler = catchAsync(async (req, res) => {
-  console.log(req)
   const result = await imageGalleryService.getFolders(req);
 
   sendResponse(res, {

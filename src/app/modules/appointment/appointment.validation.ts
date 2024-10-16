@@ -6,7 +6,7 @@ const createAppointmentValidation = z.object({
       required_error: 'Name is required',
     }),
     phone: z
-      .number({
+      .string({
         required_error: 'Phone number is required',
       })
       .min(1, 'Phone number must be a valid number'),
@@ -14,14 +14,15 @@ const createAppointmentValidation = z.object({
       .string({
         required_error: 'Email is required',
       })
+      
       .email('Invalid email format'),
-    dob: z.string({
-      required_error: 'Date of birth is required',
-    }),
-    message: z.string().optional(),
+    date: z.string().optional(),
+    category: z.string().optional(),
   }),
 });
 
+
 export const appointmentValidations = {
   createAppointmentValidation,
+
 };

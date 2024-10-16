@@ -1,8 +1,8 @@
 import express from 'express';
-import { validateRequest } from '../../../utils/validateRequest';
 import { auth } from '../../middlewares/auth';
 import { TeamValidations } from './team.validation';
 import { teamControllers } from './team.controller';
+import { validateRequest } from '../../middlewares/validateRequest';
 
 const router = express.Router();
 

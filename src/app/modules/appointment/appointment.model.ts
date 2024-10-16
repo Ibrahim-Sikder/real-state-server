@@ -8,19 +8,21 @@ const appointmentSchema = new Schema<TAppointment>(
       required: [true, 'Name is required'],
     },
     phone: {
-      type: Number,
-      required: [true, 'Phone number is required'],
+      type: String,
     },
     email: {
       type: String,
       required: [true, 'Email is required'],
     },
-    dob: {
+    date: {
       type: String,
-      required: [true, 'Date of birth is required'],
     },
-    message: {
+    category: {
       type: String,
+    },
+    status: {
+      type: String,
+      default:'Pending'
     },
   },
   {

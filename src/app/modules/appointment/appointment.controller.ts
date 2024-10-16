@@ -3,10 +3,13 @@ import sendResponse from '../../../utils/sendResponse';
 import httpStatus from 'http-status';
 import { appointmentServices } from './appointment.service';
 
-const createAppointment = async (req: Request, res: Response, next: NextFunction) => {
+const createAppointment = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
     const result = await appointmentServices.createAppointment(req.body);
-
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
@@ -18,7 +21,11 @@ const createAppointment = async (req: Request, res: Response, next: NextFunction
     next(err);
   }
 };
-const getAllAppointment = async (req: Request, res: Response, next: NextFunction) => {
+const getAllAppointment = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
     const result = await appointmentServices.getAllAppointment(req.query);
 
@@ -33,7 +40,11 @@ const getAllAppointment = async (req: Request, res: Response, next: NextFunction
   }
 };
 
-const deleteAppointment = async (req: Request, res: Response, next: NextFunction) => {
+const deleteAppointment = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
     const { id } = req.params;
     const result = await appointmentServices.deleteAppointment(id);
@@ -48,10 +59,29 @@ const deleteAppointment = async (req: Request, res: Response, next: NextFunction
     next(err);
   }
 };
+const upateAppointment = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { id } = req.params;
+    const result = await appointmentServices.updateAppointment(id, req.body);
 
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Appointment update succesfully',
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 
 export const appointmentControllers = {
   getAllAppointment,
   deleteAppointment,
-   createAppointment,
+  createAppointment,
+  upateAppointment,
 };

@@ -30,9 +30,20 @@ const deleteAppointment = async (id: string) => {
   const result = await Appointment.deleteOne({ _id: id });
   return result;
 };
+const updateAppointment = async (
+  id: string,
+  payload: Partial<TAppointment>,
+) => {
+  const result = await Appointment.findByIdAndUpdate(id, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return result;
+};
 
 export const appointmentServices = {
   createAppointment,
   getAllAppointment,
   deleteAppointment,
+  updateAppointment,
 };

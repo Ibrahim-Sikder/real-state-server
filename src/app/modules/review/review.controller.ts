@@ -1,72 +1,73 @@
 import { StatusCodes } from 'http-status-codes';
 
-import { FaqServices } from './faq.service';
+
 import { catchAsync } from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import { NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
+import { reviewServices } from './review.service';
 
-const createFaq = catchAsync(async (req, res) => {
-  const faq = await FaqServices.createFaq(req.body);
+const createReview = catchAsync(async (req, res) => {
+  const faq = await reviewServices.createreview(req.body);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: 'FAQ created successful!',
+    message: 'Reivew created successful!',
     data: faq,
   });
 });
 
 
 
-const getAllFaq = async (req: Request, res: Response, next: NextFunction) => {
+const getAllReview = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await FaqServices.getAllFaq(req.query);
+    const result = await reviewServices.getAllreview(req.query);
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'Faq are retrieved succesfully',
+      message: 'Reivew are retrieved succesfully',
       data: result,
     });
   } catch (err) {
     next(err);
   }
 };
-const updateFaq = catchAsync(async (req, res) => {
+const updateReview = catchAsync(async (req, res) => {
   const { id } = req.params;
 
-  const service = await FaqServices.updateFaq(id, req.body);
+  const service = await reviewServices.updatereview(id, req.body);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: 'Faq update successful!',
+    message: 'Reivew update successful!',
     data: service,
   });
 });
-const deleteFaq = catchAsync(async (req, res) => {
+const deleteReview = catchAsync(async (req, res) => {
   const { id } = req.params;
 
-  const service = await FaqServices.deleteFaq(id);
+  const service = await reviewServices.deletereview(id);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: 'Faq deleted successful!',
+    message: 'Reivew deleted successful!',
     data: service,
   });
 });
-const getSingleFaq = async (
+const getSingleReview = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
     const { id } = req.params;
-    const result = await FaqServices.getSinigleFaq(id);
+    const result = await reviewServices.getSiniglereview(id);
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'About is retrieved succesfully',
+      message: 'Review is retrieved succesfully',
       data: result,
     });
   } catch (err) {
@@ -74,10 +75,10 @@ const getSingleFaq = async (
   }
 };
 
-export const faqController = {
-  createFaq,
-  getAllFaq,
-  updateFaq,
-  deleteFaq,
-  getSingleFaq
+export const reviewController = {
+  createReview,
+  getAllReview,
+  updateReview,
+  deleteReview,
+  getSingleReview
 };
