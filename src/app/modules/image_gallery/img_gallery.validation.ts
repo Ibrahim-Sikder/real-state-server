@@ -5,9 +5,7 @@ const createImgGalleryValidationSchema = z.object({
     title: z.string({
       required_error: 'Name is required',
     }),
-    image: z.string({
-      required_error: 'Image URL is required',
-    }),
+    images: z.array(z.string()).optional(),
   }),
 });
 const updateImgGalleryValidationSchema = z.object({

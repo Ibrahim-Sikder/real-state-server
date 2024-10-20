@@ -2,5 +2,6 @@
 
 export type TImgGallery = {
     title:string,
-    image:string,
+    images:string[],
+    createdAt:string
 }

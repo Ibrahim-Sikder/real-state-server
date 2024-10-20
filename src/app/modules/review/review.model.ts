@@ -20,8 +20,8 @@ const reviewSchema = new Schema<TReview>(
       type: String,
       required: [true, 'Description is required'],
     },
-    image: {
-      type: String,
+    images: {
+      type: [String],
       required: [true, 'Image is required'],
     },
     createdAt: {

@@ -6,8 +6,8 @@ const servicesSchema = new Schema<TServices>(
     title: {
       type: String,
     },
-    image: {
-      type: String,
+    images: {
+      type: [String],
     },
     description: {
       type: String,

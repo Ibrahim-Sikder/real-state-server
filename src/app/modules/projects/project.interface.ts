@@ -5,20 +5,33 @@ export type TProject = {
   project_address: string;
   land_area: string;
   storied: string;
-  apartment_contains: string;
   overview_Location: string[];
   short_description: string;
+  sub_short_description: string;
   overview_description: string;
   concept_Location?: string[];
   concept_description?: string;
   floor_title?: string;
+  location?: string;
   floor_Location?: string[];
   floor_description?: string;
   map_Location?: string[];
   map_description?: string;
-  floorImage?: string;
-  locationImg?: string;
-  conceptImage?: string;
-  overviewImage?: string;
+  floorImages?: string[];
+  locationImgs?: string[];
+  conceptImages?: string[];
+  overviewImages?: string[];
   videoUrls?: string[];
+  feature:boolean,
+  category:string,
+  looking_for:string,
+  high_budget:number,
+  low_budget:number,
+  meta_title: string;
+  meta_keywords: string[];
+  meta_description: string;
+  apartment_contains:string[];
+  special_amenities:string[];
+  common_features:string[];
+  home_loan_partner:string[],
 };

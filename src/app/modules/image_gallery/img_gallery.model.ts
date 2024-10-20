@@ -8,8 +8,8 @@ const imgGallerySchema = new Schema<TImgGallery>(
       required: [true, 'Name is required'],
     },
     
-    image: {
-      type: String,
+    images: {
+      type: [String],
       required: [true, 'Image URL is required'],
     },
   },

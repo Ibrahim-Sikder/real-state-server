@@ -21,15 +21,13 @@ router.get(
 );
 router.post(
   '/upload',
-
-  upload.array('images'),
+  upload,
   validateRequest(uploadImageToGallerySchema),
   imageGalleryController.createImage,
 );
 
 router.post(
   '/delete',
-
   validateRequest(deleteImageFromGallerySchema),
   imageGalleryController.deleteImage,
 );

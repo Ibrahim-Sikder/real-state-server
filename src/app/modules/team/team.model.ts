@@ -14,8 +14,8 @@ const teamSchema = new Schema<TTeam>({
     type: String,
     required: [true, 'Designation is required'],
   },
-  image: {
-    type: String,
+  images: {
+    type: [String],
     required: [true, 'Designation is required'],
   },
   social_link: {

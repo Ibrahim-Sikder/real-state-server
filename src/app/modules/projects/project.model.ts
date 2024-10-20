@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { TProject } from './project.interface';
 
-const projectSchema: Schema = new Schema(
+const projectSchema: Schema = new Schema<TProject>(
   {
     title: {
       type: String,
@@ -24,12 +24,24 @@ const projectSchema: Schema = new Schema(
       type: String,
     },
     apartment_contains: {
-      type: String,
+      type: [String],
+    },
+    special_amenities: {
+      type: [String],
+    },
+    common_features: {
+      type: [String],
+    },
+    home_loan_partner: {
+      type: [String],
     },
     overview_Location: {
       type: [String],
     },
     short_description: {
+      type: String,
+    },
+    sub_short_description: {
       type: String,
     },
     overview_description: {
@@ -56,19 +68,46 @@ const projectSchema: Schema = new Schema(
     map_description: {
       type: String,
     },
-    floorImage: {
-      type: String,
+    floorImages: {
+      type: [String],
     },
-    conceptImage: {
-      type: String,
+    conceptImages: {
+      type: [String],
     },
-    locationImg: {
-      type: String,
+    locationImgs: {
+      type: [String],
     },
-    overviewImage: {
+    overviewImages: {
+      type: [String],
+    },
+    location: {
       type: String,
     },
     videoUrls: {
+      type: [String],
+    },
+    category: {
+      type: String,
+    },
+    looking_for: {
+      type: String,
+    },
+    feature: {
+      type: Boolean,
+    },
+    high_budget: {
+      type: Number,
+    },
+    low_budget: {
+      type: Number,
+    },
+    meta_title: {
+      type: String,
+    },
+    meta_description: {
+      type: String,
+    },
+    meta_keywords: {
       type: [String],
     },
   },

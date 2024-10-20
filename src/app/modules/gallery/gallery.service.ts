@@ -69,18 +69,18 @@ const getImagesByFolder = async (req: Request) => {
   }
 };
 
-export const createImage = async (req: Request): Promise<string> => {
+const createImage = async (req: Request): Promise<string> => {
   const session = await mongoose.startSession();
   session.startTransaction();
 
   try {
-    const files = req.files;
-    console.log('file...............',files)
+    // Make sure multer stores the files in 'req.files'
+    const files = req.files as Express.Multer.File[];
+    console.log(files);
     const { folder } = req.body;
-    console.log('folder console ',folder)
 
-    if (!files || Object.keys(files).length === 0) {
-      throw new AppError(httpStatus.BAD_REQUEST, 'Please upload an image');
+    if (!files || files.length === 0) {
+      throw new AppError(httpStatus.BAD_REQUEST, 'Please upload images');
     }
 
     if (!folder) {
@@ -98,22 +98,21 @@ export const createImage = async (req: Request): Promise<string> => {
     }
 
     const uploadedImages: any[] = [];
-    const fileList = Array.isArray(files) ? files : Object.values(files);
 
-    for (const file of fileList) {
-      const image = file as Express.Multer.File;
-      const validationError = imageValidator(image.size, image.mimetype);
-
+    // Loop through uploaded files
+    for (const file of files) {
+      const validationError = imageValidator(file.size, file.mimetype);
       if (validationError) {
         throw new AppError(httpStatus.BAD_REQUEST, validationError);
       }
 
-      const fileNameWithoutExtension = image.originalname
+      // Create image name and upload to Cloudinary
+      const fileNameWithoutExtension = file.originalname
         .split('.')
         .slice(0, -1)
         .join('.');
       const imageName = `bnp-family-${Date.now()}-${fileNameWithoutExtension}`;
-      const path = image.path;
+      const path = file.path;
 
       const { secure_url, public_id } = (await sendImageToCloudinary(
         imageName,
@@ -149,7 +148,6 @@ export const createImage = async (req: Request): Promise<string> => {
     session.endSession();
   }
 };
-
 // Function to delete an image
 const deleteImage = async (req: Request) => {
   try {

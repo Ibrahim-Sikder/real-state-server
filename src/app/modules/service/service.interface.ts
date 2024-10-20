@@ -1,7 +1,7 @@
 export type TServices = {
     title: string;
     description:string,
-    image: string,
+    images: string[],
     slug:string,
     date:string,
     meta_title: string;

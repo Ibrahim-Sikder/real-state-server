@@ -3,5 +3,5 @@ export type TTeam = {
     designation:string,
     date:string,
     social_link:string,
-    image: string
+    images: string[]
 }

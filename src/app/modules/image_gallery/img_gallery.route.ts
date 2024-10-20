@@ -19,4 +19,4 @@ router.patch(
   imgGalleryControllers.updateImgGallery,
 );
 
-export const imgGalleryRoutes = router;
+export const photoGalleryRoutes = router;
