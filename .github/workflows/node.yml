@@ -21,7 +21,7 @@ jobs:
             # Ensure it's a git repository, or clone it if it's missing
             if [ ! -d ".git" ]; then
               echo "Cloning repository as it doesn't exist"
-              git clone https://github.com/YOUR_USERNAME/anaa-developers.git .
+              git clone https://github.com/SoftyPy-IT/real-state-server.git .
             fi
 
             # Pull the latest changes from the repository
