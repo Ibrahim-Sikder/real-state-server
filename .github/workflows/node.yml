@@ -15,39 +15,17 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to the project directory
             cd /var/www/html/anaa-developers/server
 
-            # Check if it's a git repository, if not clone it
-            if [ ! -d ".git" ]; then
-              git clone https://github.com/YOUR_USERNAME/anaa-developers.git .
-            else
-              git pull origin main
-            fi
+            git fetch --all
+            git reset --hard origin/main
+            git pull origin main
 
-            # Ensure .env.example exists before copying
-            if [ -f ".env.example" ]; then
-              cp .env.example .env
-            else
-              echo ".env.example file not found, please check the repository."
-              exit 1
-            fi
+            cp .env.example .env || echo ".env.example not found, skipping .env setup."
 
-            # Check if package.json exists before running npm commands
-            if [ -f "package.json" ]; then
-              npm install
-              npm run build
-            else
-              echo "package.json not found, please check the repository."
-              exit 1
-            fi
+            npm install
+            npm run build
 
-            # Check if PM2 process exists, if so, restart it, otherwise start a new one
-            if pm2 describe anaa-developers-server > /dev/null; then
-              pm2 restart anaa-developers-server
-            else
-              pm2 start npm --name "anaa-developers-server" -- run start
-            fi
+            pm2 describe anaa-developers-server > /dev/null && pm2 restart anaa-developers-server || pm2 start npm --name "anaa-developers-server" -- run start
 
-            # Save PM2 process list
             pm2 save
