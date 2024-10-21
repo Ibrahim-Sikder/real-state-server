@@ -17,22 +17,31 @@ jobs:
           script: |
             # Navigate to the project directory
             cd /var/www/html/anaa-developers/server
-            
-            # Ensure proper ownership (replace 'ubuntu' with the appropriate user)
-            sudo chown -R ubuntu:ubuntu .
 
-            # Pull the latest code from the repository
-            git pull origin main
-            
-            # Copy the .env file
-            cp .env.example .env
-            
-            # Install dependencies
-            npm install
-            
-            # Build the project
-            npm run build
-            
+            # Check if it's a git repository, if not clone it
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/YOUR_USERNAME/anaa-developers.git .
+            else
+              git pull origin main
+            fi
+
+            # Ensure .env.example exists before copying
+            if [ -f ".env.example" ]; then
+              cp .env.example .env
+            else
+              echo ".env.example file not found, please check the repository."
+              exit 1
+            fi
+
+            # Check if package.json exists before running npm commands
+            if [ -f "package.json" ]; then
+              npm install
+              npm run build
+            else
+              echo "package.json not found, please check the repository."
+              exit 1
+            fi
+
             # Check if PM2 process exists, if so, restart it, otherwise start a new one
             if pm2 describe anaa-developers-server > /dev/null; then
               pm2 restart anaa-developers-server
