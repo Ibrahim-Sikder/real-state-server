@@ -15,12 +15,24 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
+            # Navigate to the project directory
             cd /var/www/html/anaa-developers/server
-            git pull origin main
-            cp .env.example .env
-            npm install
-            npm run build
+            
+            # Ensure proper ownership (replace 'ubuntu' with the appropriate user)
+            sudo chown -R ubuntu:ubuntu .
 
+            # Pull the latest code from the repository
+            git pull origin main
+            
+            # Copy the .env file
+            cp .env.example .env
+            
+            # Install dependencies
+            npm install
+            
+            # Build the project
+            npm run build
+            
             # Check if PM2 process exists, if so, restart it, otherwise start a new one
             if pm2 describe anaa-developers-server > /dev/null; then
               pm2 restart anaa-developers-server
