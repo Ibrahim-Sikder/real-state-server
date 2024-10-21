@@ -15,35 +15,11 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to the project directory
             cd /var/www/html/anaa-developers/server
-
-            # Ensure it's a git repository, or clone it if it's missing
-            if [ ! -d ".git" ]; then
-              echo "Cloning repository as it doesn't exist"
-              git clone git@github.com:SoftyPy-IT/real-state-server.git .
-            fi
-
-            # Pull the latest changes from the repository
-            git fetch --all
-            git reset --hard origin/main
             git pull origin main
-
-            # Ensure .env.example exists before copying
-            if [ -f ".env.example" ]; then
-              cp .env.example .env
-            else
-              echo ".env.example file not found, skipping .env setup."
-            fi
-
-            # Check if package.json exists before running npm commands
-            if [ -f "package.json" ]; then
-              npm install
-              npm run build
-            else
-              echo "package.json not found. Ensure it's present in the repository."
-              exit 1
-            fi
+            cp .env.example .env
+            npm install
+            npm run build
 
             # Check if PM2 process exists, if so, restart it, otherwise start a new one
             if pm2 describe anaa-developers-server > /dev/null; then
