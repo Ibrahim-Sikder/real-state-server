@@ -3,15 +3,13 @@ import { TImgGallery } from './img_gallery.interface';
 
 const imgGallerySchema = new Schema<TImgGallery>(
   {
-    name: {
+    title: {
       type: String,
       required: [true, 'Name is required'],
     },
-    slug: {
-      type: String,
-    },
-    thumnail_img: {
-      type: String,
+    
+    images: {
+      type: [String],
       required: [true, 'Image URL is required'],
     },
   },

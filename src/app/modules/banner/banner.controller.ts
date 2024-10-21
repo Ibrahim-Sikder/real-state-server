@@ -6,7 +6,7 @@ import { bannerServices } from './banner.service';
 const createBanner = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await bannerServices.createBanner(req.body);
-    console.log(result)
+ 
 
     sendResponse(res, {
       statusCode: httpStatus.OK,

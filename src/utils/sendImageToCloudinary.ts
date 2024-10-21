@@ -2,7 +2,7 @@ import { UploadApiResponse, v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
 import multer from 'multer';
 import config from '../app/config';
-
+import path from 'path';
 cloudinary.config({
   cloud_name: config.cloudinary_name,
   api_key: config.cloudinary_api_key,
@@ -19,7 +19,7 @@ export const sendImageToCloudinary = (
       path,
       {
         public_id: imageName.trim(),
-        folder: `bnp-family/${folder}`,
+        folder: `real-state/${folder}`,
       },
       function (error, result) {
         if (error) {
@@ -40,19 +40,22 @@ export const sendImageToCloudinary = (
 };
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadPath = process.cwd() + '/uploads/';
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(process.cwd(), '/uploads/');
     if (!fs.existsSync(uploadPath)) {
       fs.mkdirSync(uploadPath);
     }
-    cb(null, uploadPath);
+    cb(null, uploadPath); // Save files in 'uploads' folder
   },
-  filename: function (req, file, cb) {
+  filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + '-' + uniqueSuffix);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
   },
 });
 
-export const upload = multer({ storage: storage });
+// Multer configuration: Handle 'images' field with a limit of 10 images
+export const upload = multer({
+  storage: storage,
+}).array('images', 10);
 
 export const cloudinaryConfig = cloudinary;

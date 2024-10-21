@@ -1,7 +1,7 @@
 import express from 'express';
-import { validateRequest } from '../../../utils/validateRequest';
 import { videoValidations } from './video.validation';
 import { videoControllers } from './video.controller';
+import { validateRequest } from '../../middlewares/validateRequest';
 
 const router = express.Router();
 

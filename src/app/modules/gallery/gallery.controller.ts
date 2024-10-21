@@ -29,7 +29,7 @@ const getImagesByFolder: RequestHandler = catchAsync(async (req, res) => {
 
 const createImage: RequestHandler = catchAsync(async (req, res) => {
   const result = await imageGalleryService.createImage(req);
-
+console.log(req)
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,

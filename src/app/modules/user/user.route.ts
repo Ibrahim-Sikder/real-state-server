@@ -1,8 +1,8 @@
 import express from 'express';
 import { UserController } from './user.controller';
-import { validateRequest } from '../../../utils/validateRequest';
 import { userValidations } from './user.validation';
 import { auth } from '../../middlewares/auth';
+import { validateRequest } from '../../middlewares/validateRequest';
 const router = express.Router();
 
 router.get('/',  UserController.getAllUser);

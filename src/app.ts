@@ -13,8 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ['https://anaadevelopersltd.com','https://admin.anaadevelopersltd.com'],
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
     credentials: true,
+    
   }),
 );
 

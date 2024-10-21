@@ -1,57 +1,80 @@
 import { z } from 'zod';
 
-export const createProjectValidation = z.object({
+const createProjectValidation = z.object({
   body: z.object({
-    img_tagline_bangla: z.string().optional(),
-    img_tagline_english: z.string().optional(),
-    admin_name: z.string({
-      required_error: 'Admin Name is required',
+    title: z.string({
+      required_error: 'Title is required',
     }),
-    date: z.string({
-      required_error: 'Post Date is required',
+    sub_title: z.string({
+      required_error: 'Subtitle is required',
     }),
-    bangla_title: z.string({
-      required_error: 'Bangla title is required',
+    project_type: z.string().optional(),
+    project_address: z.string().optional(),
+    land_area: z.string().optional(),
+    storied: z.string().optional(),
+    overview_Location: z.array(z.string()).optional(),
+    short_description: z.string().optional(),
+    overview_description: z.string().optional(),
+    concept_Location: z.array(z.string()).optional(),
+    concept_description: z.string().optional(),
+    floor_title: z.string().optional(),
+    floor_Location: z.array(z.string()).optional(),
+    floor_description: z.string().optional(),
+    map_Location: z.array(z.string()).optional(),
+    map_description: z.string().optional(),
+    floorImages: z.array(z.string()).optional(),
+    conceptImages: z.array(z.string()).optional(),
+    special_amenities: z.array(z.string()).optional(),
+    common_features: z.array(z.string()).optional(),
+    home_loan_partner: z.array(z.string()).optional(),
+    apartment_contains: z.array(z.string()).optional(),
+    overviewImages: z.array(z.string()).optional(),
+    locationImgs: z.array(z.string()).optional(),
+    videoUrls: z.array(z.string()).optional(),
+    category: z.string(),
+    feature: z.boolean({
+      required_error: 'Feature flag is required',
     }),
-    english_title: z.string({
-      required_error: 'English title is required',
+    high_budget: z.number({
+      required_error: 'High budget is required',
     }),
-    bangla_short_description: z.string({
-      required_error: 'Bangla short description is required',
+    low_budget: z.number({
+      required_error: 'Low budget is required',
     }),
-    english_short_description: z.string({
-      required_error: 'English short description is required',
-    }),
-    bangla_description: z.string({
-      required_error: 'Bangla description is required',
-    }),
-    english_description: z.string({
-      required_error: 'English description is required',
-    }),
-    meta_title: z.string({
-      required_error: 'Meta Title is required',
-    }),
-    meta_description: z.string({
-      required_error: 'Meta Description is required',
-    }),
-    meta_keywords: z.array(z.string(), {
-      required_error: 'At least one Meta Keyword is required',
-    }),
+    meta_title: z.string().optional(),
+    meta_description: z.string().optional(),
+    meta_keywords: z.array(z.string()).optional(),
   }),
 });
 
-export const updateProjectValidation = z.object({
+const updateProjectValidation = z.object({
   body: z.object({
-    img_tagline_bangla: z.string().optional(),
-    img_tagline_english: z.string().optional(),
-    admin_name: z.string().optional(),
-    date: z.string().optional(),
-    bangla_title: z.string().optional(),
-    english_title: z.string().optional(),
-    bangla_short_description: z.string().optional(),
-    english_short_description: z.string().optional(),
-    bangla_description: z.string().optional(),
-    english_description: z.string().optional(),
+    title: z.string().optional(),
+    sub_title: z.string().optional(),
+    project_type: z.string().optional(),
+    project_address: z.string().optional(),
+    land_area: z.string().optional(),
+    storied: z.string().optional(),
+    apartment_contains: z.array(z.string()).optional(),
+    overview_Location: z.array(z.string()).optional(),
+    short_description: z.string().optional(),
+    overview_description: z.string().optional(),
+    concept_Location: z.array(z.string()).optional(),
+    concept_description: z.string().optional(),
+    floor_title: z.string().optional(),
+    floor_Location: z.array(z.string()).optional(),
+    floor_description: z.string().optional(),
+    map_Location: z.array(z.string()).optional(),
+    map_description: z.string().optional(),
+    floorImages: z.array(z.string()).optional(),
+    conceptImages: z.array(z.string()).optional(),
+    overviewImages: z.array(z.string()).optional(),
+    locationImgs: z.array(z.string()).optional(),
+    videoUrls: z.array(z.string()).optional(),
+    category: z.string().optional(),
+    feature: z.boolean().optional(),
+    hight_budget: z.number().optional(),
+    low_budget: z.number().optional(),
     meta_title: z.string().optional(),
     meta_description: z.string().optional(),
     meta_keywords: z.array(z.string()).optional(),

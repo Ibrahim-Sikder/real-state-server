@@ -1,7 +1,7 @@
 
 
 export type TImgGallery = {
-    name:string,
-    slug:string,
-    thumnail_img:string,
+    title:string,
+    images:string[],
+    createdAt:string
 }

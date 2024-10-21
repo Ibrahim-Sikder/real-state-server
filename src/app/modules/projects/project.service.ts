@@ -25,6 +25,7 @@ const getAllProject = async (query: Record<string, unknown>) => {
     projects,
   };
 };
+
 const getSinigleProject = async (id: string) => {
   const result = await Project.findById(id);
   return result;

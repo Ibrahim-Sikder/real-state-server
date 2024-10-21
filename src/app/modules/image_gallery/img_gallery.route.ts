@@ -1,7 +1,7 @@
 import express from 'express';
-import { validateRequest } from '../../../utils/validateRequest';
 import { ImgGalleryValidations } from './img_gallery.validation';
 import { imgGalleryControllers } from './img_gallery.controller';
+import { validateRequest } from '../../middlewares/validateRequest';
 
 const router = express.Router();
 
@@ -19,4 +19,4 @@ router.patch(
   imgGalleryControllers.updateImgGallery,
 );
 
-export const imgGalleryRoutes = router;
+export const photoGalleryRoutes = router;
