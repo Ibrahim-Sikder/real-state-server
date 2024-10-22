@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const allowedOrigins = ['https://anaadevelopersltd.com', 'https://admin.anaadevelopersltd.com'];
+
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -22,9 +23,12 @@ app.use(
         callback(new Error('Not allowed by CORS'));
       }
     },
-    credentials: true
+    credentials: true, 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
+
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to the API');
