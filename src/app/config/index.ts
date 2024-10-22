@@ -19,6 +19,8 @@ export default {
     cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
     cloudinary_secret: process.env.CLOUDINARY_SECRET,
     super_admin_password:process.env.SUPER_ADMIN_PASSWORD,
+    CROSS_ORIGIN:process.env.CROSS_ORIGIN,
+    CROSS_ORIGIN_ADMIN:process.env.CROSS_ORIGIN_ADMIN,
     
   cloudinary: {
     CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
