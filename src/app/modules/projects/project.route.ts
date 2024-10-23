@@ -13,9 +13,9 @@ router.post(
   validateRequest(ProjectValidations.createProjectValidation),
   projectControllers.createProject,
 );
-router.get('/',   auth(USER_ROLE.admin, USER_ROLE.super_admin), projectControllers.getAllProject);
-router.get('/:id',   auth(USER_ROLE.admin, USER_ROLE.super_admin), projectControllers.getSingleProject);
-router.delete('/:id',   auth(USER_ROLE.admin, USER_ROLE.super_admin), projectControllers.deleteProject);
+router.get('/',    projectControllers.getAllProject);
+router.get('/:id',   projectControllers.getSingleProject);
+router.delete('/:id',  projectControllers.deleteProject);
 router.patch(
   '/:id',   auth(USER_ROLE.admin, USER_ROLE.super_admin),
   validateRequest(ProjectValidations.updateProjectValidation),
