@@ -16,7 +16,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /var/www/html/anaa-developers/server
-            git pull origin main
+            git fetch --all
+            git reset --hard origin/main
             cp .env.example .env
             npm install
             npm run build
