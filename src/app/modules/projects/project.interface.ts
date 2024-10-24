@@ -35,3 +35,4 @@ export type TProject = {
   common_features:string[];
   home_loan_partner:string[],
 };
+
