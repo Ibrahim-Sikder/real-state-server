@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const allowedOrigins = ['http://localhost:3000'];
+// const allowedOrigins = ['http://localhost:3000','http://localhost:3001'];
 const allowedOrigins = ['https://anaadevelopersltd.com', 'https://admin.anaadevelopersltd.com'];
 
 app.use(
@@ -25,7 +25,7 @@ app.use(
       }
     },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }),
 );

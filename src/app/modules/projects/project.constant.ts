@@ -3,5 +3,6 @@ export const projectSearchableField = [
   'low_budget',
   'location',
   'looking_for',
-  'category'
+  'category',
+
 ];
