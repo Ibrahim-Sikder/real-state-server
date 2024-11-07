@@ -104,6 +104,9 @@ const projectSchema: Schema = new Schema<TProject>(
     meta_title: {
       type: String,
     },
+    brochure_link: {
+      type: String,
+    },
     meta_description: {
       type: String,
     },

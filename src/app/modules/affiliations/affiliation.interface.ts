@@ -1,4 +1,4 @@
 export type TAffiliation = {
     images:string[]
-    createdAt:string
+    date:string
 }

@@ -7,7 +7,7 @@ const aboutSchema = new Schema<TAffiliation>(
       type: [String],
       required: [true, 'Image is required'],
     },
-    createdAt: {
+    date: {
       type: String,
     },
   },

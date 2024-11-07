@@ -34,5 +34,6 @@ export type TProject = {
   special_amenities:string[];
   common_features:string[];
   home_loan_partner:string[],
+  brochure_link:string,
 };
 

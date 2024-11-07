@@ -2,16 +2,14 @@ import { z } from 'zod';
 
 const createImgGalleryValidationSchema = z.object({
   body: z.object({
-    title: z.string({
-      required_error: 'Name is required',
-    }),
+    title: z.string().optional(),
     images: z.array(z.string()).optional(),
   }),
 });
 const updateImgGalleryValidationSchema = z.object({
   body: z.object({
     title: z.string().optional(),
-    image: z.string().optional(),
+    images: z.array(z.string()).optional(),
   }),
 });
 
