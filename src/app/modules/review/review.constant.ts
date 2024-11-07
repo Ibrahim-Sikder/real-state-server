@@ -1,1 +1,1 @@
-export const reviewSearch = ['question','answer','faq']
+export const reviewSearch = ['question','answer','faq','title','question']
