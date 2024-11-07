@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const allowedOrigins = ['http://localhost:3001','http://localhost:3002'];
+// const allowedOrigins = ['http://localhost:3001','http://localhost:3000'];
 const allowedOrigins = ['https://anaadevelopersltd.com', 'https://admin.anaadevelopersltd.com'];
 
 app.use(
