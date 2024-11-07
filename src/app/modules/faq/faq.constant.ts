@@ -1,1 +1,1 @@
-export const FaqSearch = ['question','answer']
+export const FaqSearch = ['question','answer','faq']
