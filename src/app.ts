@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // const allowedOrigins = ['http://localhost:3001','http://localhost:3000'];
-const allowedOrigins = ['https://anaadevelopersltd.com', 'https://admin.anaadevelopersltd.com'];
+const allowedOrigins = ['https://zrf.info', 'https://admin.zrf.info'];
 
 app.use(
   cors({
