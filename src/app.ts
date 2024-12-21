@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// const allowedOrigins = ['http://localhost:3001','http://localhost:3000'];
-const allowedOrigins = ['https://zrf.info', 'https://admin.zrf.info'];
+const allowedOrigins = ['http://localhost:3001','http://localhost:3000'];
+
 
 app.use(
   cors({
