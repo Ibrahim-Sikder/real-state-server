@@ -68,7 +68,7 @@ const updateProjectValidation = z.object({
     overviewImages: z.array(z.string()).optional(),
     locationImgs: z.array(z.string()).optional(),
     videoUrls: z.array(z.string()).optional(),
-    category: z.string(),
+    category: z.string().optional(),
     feature: z.boolean().optional(),
     high_budget: z.number().optional(),
     low_budget: z.number().optional(),

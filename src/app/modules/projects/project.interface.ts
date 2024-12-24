@@ -2,6 +2,7 @@ export type TProject = {
   title: string;
   sub_title: string;
   project_type: string;
+  project_offer:string;
   project_address: string;
   land_area: string;
   storied: string;
@@ -35,5 +36,6 @@ export type TProject = {
   common_features:string[];
   home_loan_partner:string[],
   brochure_link:string,
+  project_date:string;
 };
 

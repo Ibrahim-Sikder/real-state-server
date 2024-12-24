@@ -14,6 +14,12 @@ const projectSchema: Schema = new Schema<TProject>(
     project_type: {
       type: String,
     },
+    project_date: {
+      type: String,
+    },
+    project_offer: {
+      type: String,
+    },
     project_address: {
       type: String,
     },
