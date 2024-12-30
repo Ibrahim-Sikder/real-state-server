@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const allowedOrigins = ['https://admin.anaadevelopersltd.com','https://anaadevelopersltd.com'];
-
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+// const allowedOrigins = ['https://admin.anaadevelopersltd.com','https://anaadevelopersltd.com'];
 
 app.use(
   cors({
