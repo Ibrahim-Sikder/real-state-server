@@ -71,6 +71,9 @@ const projectSchema: Schema = new Schema<TProject>(
     map_Location: {
       type: [String],
     },
+    virtual_Location: {
+      type: [String],
+    },
     map_description: {
       type: String,
     },
@@ -86,7 +89,10 @@ const projectSchema: Schema = new Schema<TProject>(
     overviewImages: {
       type: [String],
     },
-    location: {
+    projectLocation: {
+      type: String,
+    },
+    projectCategoryType: {
       type: String,
     },
     videoUrls: {
@@ -101,12 +107,7 @@ const projectSchema: Schema = new Schema<TProject>(
     feature: {
       type: Boolean,
     },
-    high_budget: {
-      type: Number,
-    },
-    low_budget: {
-      type: Number,
-    },
+
     meta_title: {
       type: String,
     },

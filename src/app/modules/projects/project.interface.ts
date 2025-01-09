@@ -13,10 +13,10 @@ export type TProject = {
   concept_Location?: string[];
   concept_description?: string;
   floor_title?: string;
-  location?: string;
+  projectLocation?: string;
+  map_Location?: string[];
   floor_Location?: string[];
   floor_description?: string;
-  map_Location?: string[];
   map_description?: string;
   floorImages?: string[];
   locationImgs?: string[];
@@ -26,8 +26,6 @@ export type TProject = {
   feature:boolean,
   category:string,
   looking_for:string,
-  high_budget:number,
-  low_budget:number,
   meta_title: string;
   meta_keywords: string[];
   meta_description: string;
@@ -37,5 +35,7 @@ export type TProject = {
   home_loan_partner:string[],
   brochure_link:string,
   project_date:string;
+  projectCategoryType:string;
+  virtual_Location:string[]
 };
 
