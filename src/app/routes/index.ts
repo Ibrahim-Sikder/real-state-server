@@ -15,6 +15,7 @@ import { appointmentRoutes } from '../modules/appointment/appointment.route';
 import { galleryRoutes } from '../modules/gallery/gallery.route';
 import { reviewRoutes } from '../modules/review/review.route';
 import { affiliationRoutes } from '../modules/affiliations/affiliation.route';
+import { blogRoutes } from '../modules/blog/blog.routes';
 const router = Router();
 
 const moduleRoutes = [
@@ -75,6 +76,10 @@ const moduleRoutes = [
   {
     path: '/affiliation',
     route: affiliationRoutes,
+  },
+  {
+    path: '/blogs',
+    route: blogRoutes,
   },
 ];
 
